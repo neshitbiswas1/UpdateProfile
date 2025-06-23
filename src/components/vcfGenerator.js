@@ -1,14 +1,14 @@
-export const generateVCF = ({ name, email, phone, company, title }) => {
-  const lines = [
-    "BEGIN:VCARD",
-    "VERSION:3.0",
-    `FN:${name}`,
-    `N:${name};;;;`, // Proper 'N' field (LastName;FirstName;MiddleName;Prefix;Suffix)
-    `ORG:${company}`,
-    `TITLE:${title}`,
-    `TEL;TYPE=WORK,VOICE:${phone}`,
-    `EMAIL;TYPE=INTERNET:${email}`,
-    "END:VCARD"
-  ];
-  return lines.join("\r\n"); // Use CRLF for proper compatibility
+// Generates VCF contact string
+export const generateVCF = (profile) => {
+  return `
+BEGIN:VCARD
+VERSION:3.0
+FN:${profile.name}
+TITLE:${profile.title}
+ORG:${profile.company}
+EMAIL:${profile.email}
+TEL:${profile.phone}
+URL:${profile.linkedin || ""}
+END:VCARD
+  `.trim();
 };

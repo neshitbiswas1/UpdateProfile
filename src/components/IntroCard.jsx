@@ -113,7 +113,7 @@ const IntroCard = () => {
                   name="company"
                   value={profile.company}
                   onChange={handleChange}
-                  className="bg-transparent text-sm font-semibold w-full mt-2 border-b border-gray-600"
+                  className="bg-transparent text-lg font-bold w-full mt-2 border-b border-gray-600"
                 />
               </>
             ) : (
@@ -243,12 +243,12 @@ const IntroCard = () => {
               <input
                 type="text"
                 name="Location"
-                value={profile.Location}
+                value={profile.location}
                 onChange={handleChange}
                 className="bg-transparent border-b border-gray-600 w-full"
               />
             ) : (
-              <span>{profile.Location}</span>
+              <span>{profile.location}</span>
             )}
           </div>
         </div>
