@@ -113,14 +113,14 @@ const IntroCard = () => {
                   name="company"
                   value={profile.company}
                   onChange={handleChange}
-                  className="bg-transparent text-lg font-bold w-full mt-2 border-b border-gray-600"
+                  className="bg-transparent text-xl font-bold w-full mt-2 border-b border-gray-600"
                 />
               </>
             ) : (
               <>
                 <h2 className="text-xl font-bold">{profile.name}</h2>
                 <p className="text-sm text-gray-400">{profile.title}</p>
-                <p className="text-sm font-semibold mt-2">{profile.company}</p>
+                <p className="text-xl font-bold mt-2">{profile.company}</p>
               </>
             )}
           </div>
