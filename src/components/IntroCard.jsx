@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { generateVCF } from "./vcfGenerator";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -15,13 +16,14 @@ const IntroCard = () => {
 
   useEffect(() => {
     const saved = localStorage.getItem("profileData");
+
     if (saved) {
       setProfile(JSON.parse(saved));
     } else {
-      fetch("/public/user.json")
-        .then((res) => res.json())
-        .then((data) => setProfile(data))
-        .catch((err) => console.error("Failed to load profile", err));
+      axios
+        .get("/public/user.json")
+        .then((response) => setProfile(response.data))
+        .catch((error) => console.error("Failed to load profile", error));
     }
   }, []);
 
